@@ -5,7 +5,7 @@ Run the experiments:
 ```bash
 $ python run_experiments.py
 ```
-view the results:
+Run the notebook to view the results:
 
 ```
  results/results.ipynb
