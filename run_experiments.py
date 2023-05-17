@@ -10,17 +10,18 @@ def run_abrupt_agraw1(repetitions, learning_algorithms, drift_algorithms, data_s
         for size in data_size:
             for drift_algorithm in drift_algorithms:
                 for iter in range(repetitions):
-                    command = f'java -cp src/moa-2023.04.0-sources.jar -javaagent:lib/sizeofag-1.0.4.jar -classpath "lib/*" moa.DoTask "EvaluatePrequential -l (drift.DriftDetectionMethodClassifier -l {learning_algorithm} -d {drift_algorithm}) \
+                    command = f'java -cp src/moa-2023.04.0-sources.jar -javaagent:lib/sizeofag-1.0.4.jar -classpath "lib/*" moa.DoTask "EvaluatePrequential -l (drift.DriftDetectionMethodClassifier -l {learning_algorithm} \
+                                -d {drift_algorithm}) \
                                 -s (ConceptDriftStream -s (generators.AgrawalGenerator -i {iter}) -d (ConceptDriftStream \
                                 -s (generators.AgrawalGenerator -i {iter} -f 2) -d (ConceptDriftStream \
                                 -s (generators.AgrawalGenerator -i {iter} -f 3) -d (ConceptDriftStream \
                                 -s (generators.AgrawalGenerator -i {iter} -f 4) -d (generators.AgrawalGenerator -i {iter} -f 5) \
-                                -p {size[4]} -w 1) \
-                                -p {size[3]} -w 1) \
-                                -p {size[2]} -w 1) \
-                                -p {size[1]} -w 1) -i {size[0]} -f 1000" > results/abrupt_agraw1/{learning_algorithm}_{drift_algorithm}_{size[0]}_{iter}_AGRAW1_Abrupt.csv'
+                                -p {size[1]} -w 1) \
+                                -p {size[1]} -w 1) \
+                                -p {size[1]} -w 1) \
+                                -p {size[1]} -w 1) -e (BasicClassificationPerformanceEvaluator) -i {size[0]} -f 1000" > results/abrupt_agraw1/{learning_algorithm}_{drift_algorithm}_{size[0]}_{iter}_AGRAW1_Abrupt.csv'
                         
-                    #print(command)
+                    print(command)
                     os.system(command)
 
 def run_gradual_agraw1(repetitions, learning_algorithms, drift_algorithms, data_size):
@@ -35,12 +36,12 @@ def run_gradual_agraw1(repetitions, learning_algorithms, drift_algorithms, data_
                                 -s (generators.AgrawalGenerator -i {iter} -f 2) -d (ConceptDriftStream \
                                 -s (generators.AgrawalGenerator -i {iter} -f 3) -d (ConceptDriftStream \
                                 -s (generators.AgrawalGenerator -i {iter} -f 4) -d (generators.AgrawalGenerator -i {iter} -f 5) \
-                                -p {size[4]} -w 500) \
-                                -p {size[3]} -w 500) \
-                                -p {size[2]} -w 500) \
+                                -p {size[1]} -w 500) \
+                                -p {size[1]} -w 500) \
+                                -p {size[1]} -w 500) \
                                 -p {size[1]} -w 500) -i {size[0]} -f 1000" > results/gradual_agraw1/{learning_algorithm}_{drift_algorithm}_{size[0]}_{iter}_AGRAW1_Gradual.csv'
                         
-                    #print(command)
+                    print(command)
                     os.system(command)
 
 
@@ -297,30 +298,30 @@ if __name__ == "__main__":
 
     log.info(f'Runnig abrupt_agraw1')
     run_abrupt_agraw1(repetitions, learning_algorithms, drift_algorithms, data_size)
-    log.info(f'Runnig gradual_agraw1')
-    run_gradual_agraw1(repetitions, learning_algorithms, drift_algorithms, data_size)
-    log.info(f'Runnig abrupt_agraw2')
-    run_abrupt_agraw2(repetitions, learning_algorithms, drift_algorithms, data_size)
-    log.info(f'Runnig  gradual_agraw2')
-    run_gradual_agraw2(repetitions, learning_algorithms, drift_algorithms, data_size)
-    log.info(f'Runnig abrupt_led')
-    run_abrupt_led(repetitions, learning_algorithms, drift_algorithms, data_size)
-    log.info(f'Runnig gradual_led')
-    run_gradual_led(repetitions, learning_algorithms, drift_algorithms, data_size)
-    log.info(f'Runnig abrupt_mixed')
-    run_abrupt_mixed(repetitions, learning_algorithms, drift_algorithms, data_size)
-    log.info(f'Runnig gradual_mixed')
-    run_gradual_mixed(repetitions, learning_algorithms, drift_algorithms, data_size)
-    log.info(f'Runnig brupt_randomRBF')
-    run_abrupt_randomRBF(repetitions, learning_algorithms, drift_algorithms, data_size)
-    log.info(f'Runnig gradual_randomRBF')
-    run_gradual_randomRBF(repetitions, learning_algorithms, drift_algorithms, data_size)
-    log.info(f'Runnig abrupt_sine')
-    run_abrupt_sine(repetitions, learning_algorithms, drift_algorithms, data_size)
-    log.info(f'Runnig gradual_sine')
-    run_gradual_sine(repetitions, learning_algorithms, drift_algorithms, data_size)
-    log.info(f'Runnig abrupt_waveform')
-    run_abrupt_waveform(repetitions, learning_algorithms, drift_algorithms, data_size)
-    log.info(f'Runnig gradual_waveform')
-    run_gradual_waveform(repetitions, learning_algorithms, drift_algorithms, data_size)
+    #log.info(f'Runnig gradual_agraw1')
+    #run_gradual_agraw1(repetitions, learning_algorithms, drift_algorithms, data_size)
+    # log.info(f'Runnig abrupt_agraw2')
+    # run_abrupt_agraw2(repetitions, learning_algorithms, drift_algorithms, data_size)
+    # log.info(f'Runnig  gradual_agraw2')
+    # run_gradual_agraw2(repetitions, learning_algorithms, drift_algorithms, data_size)
+    # log.info(f'Runnig abrupt_led')
+    # run_abrupt_led(repetitions, learning_algorithms, drift_algorithms, data_size)
+    # log.info(f'Runnig gradual_led')
+    # run_gradual_led(repetitions, learning_algorithms, drift_algorithms, data_size)
+    # log.info(f'Runnig abrupt_mixed')
+    # run_abrupt_mixed(repetitions, learning_algorithms, drift_algorithms, data_size)
+    # log.info(f'Runnig gradual_mixed')
+    # run_gradual_mixed(repetitions, learning_algorithms, drift_algorithms, data_size)
+    # log.info(f'Runnig brupt_randomRBF')
+    # run_abrupt_randomRBF(repetitions, learning_algorithms, drift_algorithms, data_size)
+    # log.info(f'Runnig gradual_randomRBF')
+    # run_gradual_randomRBF(repetitions, learning_algorithms, drift_algorithms, data_size)
+    # log.info(f'Runnig abrupt_sine')
+    # run_abrupt_sine(repetitions, learning_algorithms, drift_algorithms, data_size)
+    # log.info(f'Runnig gradual_sine')
+    # run_gradual_sine(repetitions, learning_algorithms, drift_algorithms, data_size)
+    # log.info(f'Runnig abrupt_waveform')
+    # run_abrupt_waveform(repetitions, learning_algorithms, drift_algorithms, data_size)
+    # log.info(f'Runnig gradual_waveform')
+    # run_gradual_waveform(repetitions, learning_algorithms, drift_algorithms, data_size)
     
