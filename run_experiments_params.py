@@ -463,7 +463,6 @@ if __name__ == "__main__":
     #                           {"id": "WSTD","drift_name": "WSTD", "params": ""}
     #                           ]
     
-    
     # Test Experiments
     repetitions = 30
     learning_algorithms = ["bayes.NaiveBayes"]

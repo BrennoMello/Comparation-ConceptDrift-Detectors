@@ -3,7 +3,7 @@
 Run the experiments:
 
 ```bash
-$ python run_experiments.py
+$ python run_experiments_params.py
 ```
 Run the notebook to view the results:
 
