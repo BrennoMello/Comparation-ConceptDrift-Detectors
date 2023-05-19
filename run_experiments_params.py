@@ -205,9 +205,9 @@ def run_abrupt_mixed(repetitions, learning_algorithms, drift_detectors_params, d
                     if(drift_algorithm["params"] != ""):
                         command = f'java -cp src/moa-2023.04.0-sources.jar -javaagent:lib/sizeofag-1.0.4.jar -classpath "lib/*" moa.DoTask "EvaluatePrequential -l (drift.DriftDetectionMethodClassifier -l {learning_algorithm} -d ({drift_algorithm["drift_name"]} {drift_algorithm["params"]})) \
                                     -s (ConceptDriftStream -s (generators.MixedGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.MixedGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.MixedGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.MixedGenerator -i {iter}) -d (generators.MixedGenerator -i {iter}) \
+                                    -s (generators.MixedGenerator -i {iter} -f 2) -d (ConceptDriftStream \
+                                    -s (generators.MixedGenerator -i {iter} -f 1) -d (ConceptDriftStream \
+                                    -s (generators.MixedGenerator -i {iter} -f 2) -d (generators.MixedGenerator -i {iter}) \
                                     -p {size["drift_position"][3]} -w 1) \
                                     -p {size["drift_position"][2]} -w 1) \
                                     -p {size["drift_position"][1]} -w 1) \
@@ -215,9 +215,9 @@ def run_abrupt_mixed(repetitions, learning_algorithms, drift_detectors_params, d
                     else:
                         command = f'java -cp src/moa-2023.04.0-sources.jar -javaagent:lib/sizeofag-1.0.4.jar -classpath "lib/*" moa.DoTask "EvaluatePrequential -l (drift.DriftDetectionMethodClassifier -l {learning_algorithm} -d {drift_algorithm["drift_name"]}) \
                                     -s (ConceptDriftStream -s (generators.MixedGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.MixedGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.MixedGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.MixedGenerator -i {iter}) -d (generators.MixedGenerator -i {iter}) \
+                                    -s (generators.MixedGenerator -i {iter} -f 2) -d (ConceptDriftStream \
+                                    -s (generators.MixedGenerator -i {iter} -f 1) -d (ConceptDriftStream \
+                                    -s (generators.MixedGenerator -i {iter} -f 2) -d (generators.MixedGenerator -i {iter}) \
                                     -p {size["drift_position"][3]} -w 1) \
                                     -p {size["drift_position"][2]} -w 1) \
                                     -p {size["drift_position"][1]} -w 1) \
@@ -235,9 +235,9 @@ def run_gradual_mixed(repetitions, learning_algorithms, drift_detectors_params, 
                     if(drift_algorithm["params"] != ""):
                         command = f'java -cp src/moa-2023.04.0-sources.jar -javaagent:lib/sizeofag-1.0.4.jar -classpath "lib/*" moa.DoTask "EvaluatePrequential -l (drift.DriftDetectionMethodClassifier -l {learning_algorithm} -d ({drift_algorithm["drift_name"]} {drift_algorithm["params"]})) \
                                     -s (ConceptDriftStream -s (generators.MixedGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.MixedGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.MixedGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.MixedGenerator -i {iter}) -d (generators.MixedGenerator -i {iter}) \
+                                    -s (generators.MixedGenerator -i {iter} -f 2) -d (ConceptDriftStream \
+                                    -s (generators.MixedGenerator -i {iter} -f 1) -d (ConceptDriftStream \
+                                    -s (generators.MixedGenerator -i {iter} -f 2) -d (generators.MixedGenerator -i {iter}) \
                                     -p {size["drift_position"][3]} -w 500) \
                                     -p {size["drift_position"][2]} -w 500) \
                                     -p {size["drift_position"][1]} -w 500) \
@@ -245,9 +245,9 @@ def run_gradual_mixed(repetitions, learning_algorithms, drift_detectors_params, 
                     else:
                         command = f'java -cp src/moa-2023.04.0-sources.jar -javaagent:lib/sizeofag-1.0.4.jar -classpath "lib/*" moa.DoTask "EvaluatePrequential -l (drift.DriftDetectionMethodClassifier -l {learning_algorithm} -d {drift_algorithm["drift_name"]}) \
                                     -s (ConceptDriftStream -s (generators.MixedGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.MixedGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.MixedGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.MixedGenerator -i {iter}) -d (generators.MixedGenerator -i {iter}) \
+                                    -s (generators.MixedGenerator -i {iter} -f 2) -d (ConceptDriftStream \
+                                    -s (generators.MixedGenerator -i {iter} -f 1) -d (ConceptDriftStream \
+                                    -s (generators.MixedGenerator -i {iter} -f 2) -d (generators.MixedGenerator -i {iter}) \
                                     -p {size["drift_position"][3]} -w 500) \
                                     -p {size["drift_position"][2]} -w 500) \
                                     -p {size["drift_position"][1]} -w 500) \
@@ -326,9 +326,9 @@ def run_abrupt_sine(repetitions, learning_algorithms, drift_detectors_params, da
                     if(drift_algorithm["params"] != ""):
                         command = f'java -cp src/moa-2023.04.0-sources.jar -javaagent:lib/sizeofag-1.0.4.jar -classpath "lib/*" moa.DoTask "EvaluatePrequential -l (drift.DriftDetectionMethodClassifier -l {learning_algorithm} -d ({drift_algorithm["drift_name"]} {drift_algorithm["params"]})) \
                                     -s (ConceptDriftStream -s (generators.SineGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.SineGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.SineGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.SineGenerator -i {iter}) -d (generators.SineGenerator -i {iter}) \
+                                    -s (generators.SineGenerator -i {iter} -f 2) -d (ConceptDriftStream \
+                                    -s (generators.SineGenerator -i {iter} -f 3) -d (ConceptDriftStream \
+                                    -s (generators.SineGenerator -i {iter} -f 4) -d (generators.SineGenerator -i {iter}) \
                                     -p {size["drift_position"][3]} -w 1) \
                                     -p {size["drift_position"][2]} -w 1) \
                                     -p {size["drift_position"][1]} -w 1) \
@@ -336,9 +336,9 @@ def run_abrupt_sine(repetitions, learning_algorithms, drift_detectors_params, da
                     else:
                         command = f'java -cp src/moa-2023.04.0-sources.jar -javaagent:lib/sizeofag-1.0.4.jar -classpath "lib/*" moa.DoTask "EvaluatePrequential -l (drift.DriftDetectionMethodClassifier -l {learning_algorithm} -d {drift_algorithm["drift_name"]}) \
                                     -s (ConceptDriftStream -s (generators.SineGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.SineGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.SineGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.SineGenerator -i {iter}) -d (generators.SineGenerator -i {iter}) \
+                                    -s (generators.SineGenerator -i {iter} -f 2) -d (ConceptDriftStream \
+                                    -s (generators.SineGenerator -i {iter} -f 3) -d (ConceptDriftStream \
+                                    -s (generators.SineGenerator -i {iter} -f 4) -d (generators.SineGenerator -i {iter}) \
                                     -p {size["drift_position"][3]} -w 1) \
                                     -p {size["drift_position"][2]} -w 1) \
                                     -p {size["drift_position"][1]} -w 1) \
@@ -356,9 +356,9 @@ def run_gradual_sine(repetitions, learning_algorithms, drift_detectors_params, d
                     if(drift_algorithm["params"] != ""):
                         command = f'java -cp src/moa-2023.04.0-sources.jar -javaagent:lib/sizeofag-1.0.4.jar -classpath "lib/*" moa.DoTask "EvaluatePrequential -l (drift.DriftDetectionMethodClassifier -l {learning_algorithm} -d ({drift_algorithm["drift_name"]} {drift_algorithm["params"]})) \
                                     -s (ConceptDriftStream -s (generators.SineGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.SineGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.SineGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.SineGenerator -i {iter}) -d (generators.SineGenerator -i {iter}) \
+                                    -s (generators.SineGenerator -i {iter} -f 2) -d (ConceptDriftStream \
+                                    -s (generators.SineGenerator -i {iter} -f 3) -d (ConceptDriftStream \
+                                    -s (generators.SineGenerator -i {iter} -f 4) -d (generators.SineGenerator -i {iter}) \
                                     -p {size["drift_position"][3]} -w 500) \
                                     -p {size["drift_position"][2]} -w 500) \
                                     -p {size["drift_position"][1]} -w 500) \
@@ -366,9 +366,9 @@ def run_gradual_sine(repetitions, learning_algorithms, drift_detectors_params, d
                     else:
                         command = f'java -cp src/moa-2023.04.0-sources.jar -javaagent:lib/sizeofag-1.0.4.jar -classpath "lib/*" moa.DoTask "EvaluatePrequential -l (drift.DriftDetectionMethodClassifier -l {learning_algorithm} -d {drift_algorithm["drift_name"]}) \
                                     -s (ConceptDriftStream -s (generators.SineGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.SineGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.SineGenerator -i {iter}) -d (ConceptDriftStream \
-                                    -s (generators.SineGenerator -i {iter}) -d (generators.SineGenerator -i {iter}) \
+                                    -s (generators.SineGenerator -i {iter} -f 2) -d (ConceptDriftStream \
+                                    -s (generators.SineGenerator -i {iter} -f 3) -d (ConceptDriftStream \
+                                    -s (generators.SineGenerator -i {iter} -f 4) -d (generators.SineGenerator -i {iter}) \
                                     -p {size["drift_position"][3]} -w 500) \
                                     -p {size["drift_position"][2]} -w 500) \
                                     -p {size["drift_position"][1]} -w 500) \
@@ -442,13 +442,13 @@ def run_experiment(repetitions):
     learning_algorithms = ["bayes.NaiveBayes", "trees.HoeffdingTree"]
     if(repetitions == 30):
         data_stream = [{"data_size": 10000, "drift_position":  [2000, 2000, 2000, 2000]},   \
-                        {"data_size": 20000, "drift_position": [4000, 4000, 4000, 4000]},    \
-                        {"data_size": 50000, "drift_position": [10000, 10000, 10000, 10000]}, \
-                        {"data_size": 100000, "drift_position":[20000, 20000, 20000, 20000]}
+                       {"data_size": 20000, "drift_position": [4000, 4000, 4000, 4000]},    \
+                       {"data_size": 50000, "drift_position": [10000, 10000, 10000, 10000]}, \
+                       {"data_size": 100000, "drift_position":[20000, 20000, 20000, 20000]}
                       ]
     else:
         data_stream = [{"data_size": 1000000, "drift_position":  [200000, 200000, 200000, 200000]},   \
-                        {"data_size": 2000000, "drift_position": [400000, 400000, 400000, 400000]}    \
+                       {"data_size": 2000000, "drift_position": [400000, 400000, 400000, 400000]}    \
                       ]    
 
     drift_detectors_params = [
@@ -469,39 +469,39 @@ def run_experiment(repetitions):
                               ]
     
 
-    # log.info(f'Runnig abrupt_agraw1')
-    # run_abrupt_agraw1(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    # log.info(f'Runnig gradual_agraw1')
-    # run_gradual_agraw1(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    # log.info(f'Runnig abrupt_agraw2')
-    # run_abrupt_agraw2(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    # log.info(f'Runnig  gradual_agraw2')
-    # run_gradual_agraw2(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    # log.info(f'Runnig abrupt_led')
-    # run_abrupt_led(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    # log.info(f'Runnig gradual_led')
+    log.info(f'Runnig abrupt_agraw1')
+    run_abrupt_agraw1(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    log.info(f'Runnig gradual_agraw1')
+    run_gradual_agraw1(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    log.info(f'Runnig abrupt_agraw2')
+    run_abrupt_agraw2(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    log.info(f'Runnig gradual_agraw2')
+    run_gradual_agraw2(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    log.info(f'Runnig abrupt_led')
+    run_abrupt_led(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    log.info(f'Runnig gradual_led')
     run_gradual_led(repetitions, learning_algorithms, drift_detectors_params, data_stream)
     log.info(f'Runnig abrupt_mixed')
-    # run_abrupt_mixed(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    # log.info(f'Runnig gradual_mixed')
-    # run_gradual_mixed(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    # log.info(f'Runnig brupt_randomRBF')
-    # run_abrupt_randomRBF(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    # log.info(f'Runnig gradual_randomRBF')
-    # run_gradual_randomRBF(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    # log.info(f'Runnig abrupt_sine')
-    # run_abrupt_sine(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    # log.info(f'Runnig gradual_sine')
-    # run_gradual_sine(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    # log.info(f'Runnig abrupt_waveform')
-    # run_abrupt_waveform(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    # log.info(f'Runnig gradual_waveform')
-    # run_gradual_waveform(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    run_abrupt_mixed(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    log.info(f'Runnig gradual_mixed')
+    run_gradual_mixed(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    log.info(f'Runnig abrupt_randomRBF')
+    run_abrupt_randomRBF(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    log.info(f'Runnig gradual_randomRBF')
+    run_gradual_randomRBF(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    log.info(f'Runnig abrupt_sine')
+    run_abrupt_sine(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    log.info(f'Runnig gradual_sine')
+    run_gradual_sine(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    log.info(f'Runnig abrupt_waveform')
+    run_abrupt_waveform(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    log.info(f'Runnig gradual_waveform')
+    run_gradual_waveform(repetitions, learning_algorithms, drift_detectors_params, data_stream)
     
 
 if __name__ == "__main__":
     
     run_experiment(repetitions=30)
-    #run_experiment(repetitions=10)
+    run_experiment(repetitions=10)
     
    
