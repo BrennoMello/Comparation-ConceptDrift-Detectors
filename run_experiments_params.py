@@ -397,7 +397,7 @@ def run_abrupt_waveform(repetitions, learning_algorithms, drift_detectors_params
                                     -s (ConceptDriftStream -s (generators.WaveformGeneratorDrift -i {iter} -d 19) -d (ConceptDriftStream \
                                     -s (generators.WaveformGeneratorDrift -i {iter} -d 19) -d (ConceptDriftStream \
                                     -s (generators.WaveformGeneratorDrift -i {iter} -d 19) -d (ConceptDriftStream \
-                                    -s (generators.WaveformGeneratorDrift -i {iter} -d 19) -d (generators.WaveformGeneratorDrift -i {iter} -19) \
+                                    -s (generators.WaveformGeneratorDrift -i {iter} -d 19) -d (generators.WaveformGeneratorDrift -i {iter} -d 19) \
                                     -p {size["drift_position"][3]} -w 1) \
                                     -p {size["drift_position"][2]} -w 1) \
                                     -p {size["drift_position"][1]} -w 1) \
@@ -447,8 +447,9 @@ def run_experiment(repetitions):
                        {"data_size": 100000, "drift_position":[20000, 20000, 20000, 20000]}
                       ]
     else:
-        data_stream = [{"data_size": 1000000, "drift_position":  [200000, 200000, 200000, 200000]},   \
-                       {"data_size": 2000000, "drift_position": [400000, 400000, 400000, 400000]}    \
+        data_stream = [{"data_size": 500000, "drift_position":  [100000, 100000, 100000, 100000]}, \
+                       {"data_size": 1000000, "drift_position":  [200000, 200000, 200000, 200000]}, \
+                       {"data_size": 2000000, "drift_position": [400000, 400000, 400000, 400000]}    
                       ]    
 
     drift_detectors_params = [
@@ -469,39 +470,39 @@ def run_experiment(repetitions):
                               ]
     
 
-    log.info(f'Runnig abrupt_agraw1')
-    run_abrupt_agraw1(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    log.info(f'Runnig gradual_agraw1')
-    run_gradual_agraw1(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    log.info(f'Runnig abrupt_agraw2')
-    run_abrupt_agraw2(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    log.info(f'Runnig gradual_agraw2')
-    run_gradual_agraw2(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    log.info(f'Runnig abrupt_led')
-    run_abrupt_led(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    log.info(f'Runnig gradual_led')
-    run_gradual_led(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    log.info(f'Runnig abrupt_mixed')
-    run_abrupt_mixed(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    log.info(f'Runnig gradual_mixed')
-    run_gradual_mixed(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    log.info(f'Runnig abrupt_randomRBF')
-    run_abrupt_randomRBF(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    log.info(f'Runnig gradual_randomRBF')
-    run_gradual_randomRBF(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    log.info(f'Runnig abrupt_sine')
-    run_abrupt_sine(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    log.info(f'Runnig gradual_sine')
-    run_gradual_sine(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    # log.info(f'Runnig abrupt_agraw1')
+    # run_abrupt_agraw1(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    # log.info(f'Runnig gradual_agraw1')
+    # run_gradual_agraw1(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    # log.info(f'Runnig abrupt_agraw2')
+    # run_abrupt_agraw2(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    # log.info(f'Runnig gradual_agraw2')
+    # run_gradual_agraw2(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    # log.info(f'Runnig abrupt_led')
+    # run_abrupt_led(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    # log.info(f'Runnig gradual_led')
+    # run_gradual_led(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    # log.info(f'Runnig abrupt_mixed')
+    # run_abrupt_mixed(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    # log.info(f'Runnig gradual_mixed')
+    # run_gradual_mixed(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    # log.info(f'Runnig abrupt_randomRBF')
+    # run_abrupt_randomRBF(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    # log.info(f'Runnig gradual_randomRBF')
+    # run_gradual_randomRBF(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    # log.info(f'Runnig abrupt_sine')
+    # run_abrupt_sine(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    # log.info(f'Runnig gradual_sine')
+    # run_gradual_sine(repetitions, learning_algorithms, drift_detectors_params, data_stream)
     log.info(f'Runnig abrupt_waveform')
     run_abrupt_waveform(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    log.info(f'Runnig gradual_waveform')
-    run_gradual_waveform(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    # log.info(f'Runnig gradual_waveform')
+    # run_gradual_waveform(repetitions, learning_algorithms, drift_detectors_params, data_stream)
     
 
 if __name__ == "__main__":
     
     run_experiment(repetitions=30)
-    run_experiment(repetitions=10)
+    #run_experiment(repetitions=10)
     
    
