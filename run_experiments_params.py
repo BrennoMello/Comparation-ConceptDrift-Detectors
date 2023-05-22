@@ -448,8 +448,8 @@ def run_experiment(repetitions):
                       ]
     else:
         data_stream = [{"data_size": 500000, "drift_position":  [100000, 100000, 100000, 100000]}, \
-                       #{"data_size": 1000000, "drift_position":  [200000, 200000, 200000, 200000]}, \
-                       #{"data_size": 2000000, "drift_position": [400000, 400000, 400000, 400000]}    
+                       {"data_size": 1000000, "drift_position":  [200000, 200000, 200000, 200000]}, \
+                       {"data_size": 2000000, "drift_position": [400000, 400000, 400000, 400000]}    
                       ]    
 
     drift_detectors_params = [
@@ -502,7 +502,7 @@ def run_experiment(repetitions):
 
 if __name__ == "__main__":
     
-    #run_experiment(repetitions=30)
+    run_experiment(repetitions=30)
     run_experiment(repetitions=10)
     
    
