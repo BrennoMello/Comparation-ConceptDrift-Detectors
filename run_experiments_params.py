@@ -264,20 +264,20 @@ def run_abrupt_randomRBF(repetitions, learning_algorithms, drift_detectors_param
                 for iter in range(repetitions):
                     if(drift_algorithm["params"] != ""):
                         command = f'java -cp src/moa-2023.04.0-sources.jar -javaagent:lib/sizeofag-1.0.4.jar -classpath "lib/*" moa.DoTask "EvaluatePrequential -l (drift.DriftDetectionMethodClassifier -l {learning_algorithm} -d ({drift_algorithm["drift_name"]} {drift_algorithm["params"]})) \
-                                    -s (ConceptDriftStream -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) -d (ConceptDriftStream \
-                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) -d (ConceptDriftStream \
-                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) -d (ConceptDriftStream \
-                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) -d (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) \
+                                    -s (ConceptDriftStream -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 1) -d (ConceptDriftStream \
+                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 2) -d (ConceptDriftStream \
+                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 3) -d (ConceptDriftStream \
+                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 4) -d (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 5) \
                                     -p {size["drift_position"][3]} -w 1) \
                                     -p {size["drift_position"][2]} -w 1) \
                                     -p {size["drift_position"][1]} -w 1) \
                                     -p {size["drift_position"][0]} -w 1) -e (BasicClassificationPerformanceEvaluator) -i {size["data_size"]} -f 1000" > results/abrupt_randomRBF/{learning_algorithm}_{drift_algorithm["id"]}_{size["data_size"]}_{iter}_RANDOM_RBF_Abrupt.csv'
                     else:
                         command = f'java -cp src/moa-2023.04.0-sources.jar -javaagent:lib/sizeofag-1.0.4.jar -classpath "lib/*" moa.DoTask "EvaluatePrequential -l (drift.DriftDetectionMethodClassifier -l {learning_algorithm} -d {drift_algorithm["drift_name"]}) \
-                                    -s (ConceptDriftStream -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) -d (ConceptDriftStream \
-                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) -d (ConceptDriftStream \
-                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) -d (ConceptDriftStream \
-                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) -d (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) \
+                                    -s (ConceptDriftStream -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 1) -d (ConceptDriftStream \
+                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 2) -d (ConceptDriftStream \
+                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 3) -d (ConceptDriftStream \
+                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 4) -d (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 5) \
                                     -p {size["drift_position"][3]} -w 1) \
                                     -p {size["drift_position"][2]} -w 1) \
                                     -p {size["drift_position"][1]} -w 1) \
@@ -294,20 +294,20 @@ def run_gradual_randomRBF(repetitions, learning_algorithms, drift_detectors_para
                 for iter in range(repetitions):
                     if(drift_algorithm["params"] != ""):
                         command = f'java -cp src/moa-2023.04.0-sources.jar -javaagent:lib/sizeofag-1.0.4.jar -classpath "lib/*" moa.DoTask "EvaluatePrequential -l (drift.DriftDetectionMethodClassifier -l {learning_algorithm} -d ({drift_algorithm["drift_name"]} {drift_algorithm["params"]})) \
-                                    -s (ConceptDriftStream -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) -d (ConceptDriftStream \
-                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) -d (ConceptDriftStream \
-                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) -d (ConceptDriftStream \
-                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) -d (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) \
+                                    -s (ConceptDriftStream -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 1) -d (ConceptDriftStream \
+                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 2) -d (ConceptDriftStream \
+                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 3) -d (ConceptDriftStream \
+                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 4) -d (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 5) \
                                     -p {size["drift_position"][3]} -w 500) \
                                     -p {size["drift_position"][2]} -w 500) \
                                     -p {size["drift_position"][1]} -w 500) \
                                     -p {size["drift_position"][0]} -w 500) -e (BasicClassificationPerformanceEvaluator) -i {size["data_size"]} -f 1000" > results/gradual_randomRBF/{learning_algorithm}_{drift_algorithm["id"]}_{size["data_size"]}_{iter}_RANDOM_RBF_Gradual.csv'
                     else:
                         command = f'java -cp src/moa-2023.04.0-sources.jar -javaagent:lib/sizeofag-1.0.4.jar -classpath "lib/*" moa.DoTask "EvaluatePrequential -l (drift.DriftDetectionMethodClassifier -l {learning_algorithm} -d {drift_algorithm["drift_name"]}) \
-                                    -s (ConceptDriftStream -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) -d (ConceptDriftStream \
-                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) -d (ConceptDriftStream \
-                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) -d (ConceptDriftStream \
-                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) -d (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50) \
+                                    -s (ConceptDriftStream -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 1) -d (ConceptDriftStream \
+                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 2) -d (ConceptDriftStream \
+                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 3) -d (ConceptDriftStream \
+                                    -s (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 4) -d (generators.RandomRBFGeneratorDrift -i {iter} -c 6 -a 40 -n 50 -r 5) \
                                     -p {size["drift_position"][3]} -w 500) \
                                     -p {size["drift_position"][2]} -w 500) \
                                     -p {size["drift_position"][1]} -w 500) \
