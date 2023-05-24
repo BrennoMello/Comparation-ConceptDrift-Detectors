@@ -448,7 +448,7 @@ def run_experiment(repetitions):
                       ]
     else:
         data_stream = [
-                       #{"data_size": 500000, "drift_position":  [100000, 100000, 100000, 100000]}, \
+                       {"data_size": 500000, "drift_position":  [100000, 100000, 100000, 100000]}, \
                        {"data_size": 1000000, "drift_position":  [200000, 200000, 200000, 200000]}, \
                        {"data_size": 2000000, "drift_position": [400000, 400000, 400000, 400000]}    
                       ]    
@@ -487,23 +487,23 @@ def run_experiment(repetitions):
     # run_abrupt_mixed(repetitions, learning_algorithms, drift_detectors_params, data_stream)
     # log.info(f'Runnig gradual_mixed')
     # run_gradual_mixed(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    # log.info(f'Runnig abrupt_randomRBF')
-    # run_abrupt_randomRBF(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    # log.info(f'Runnig gradual_randomRBF')
-    # run_gradual_randomRBF(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    log.info(f'Runnig abrupt_randomRBF')
+    run_abrupt_randomRBF(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    log.info(f'Runnig gradual_randomRBF')
+    run_gradual_randomRBF(repetitions, learning_algorithms, drift_detectors_params, data_stream)
     # log.info(f'Runnig abrupt_sine')
     # run_abrupt_sine(repetitions, learning_algorithms, drift_detectors_params, data_stream)
     # log.info(f'Runnig gradual_sine')
     # run_gradual_sine(repetitions, learning_algorithms, drift_detectors_params, data_stream)
-    log.info(f'Runnig abrupt_waveform')
-    run_abrupt_waveform(repetitions, learning_algorithms, drift_detectors_params, data_stream)
+    # log.info(f'Runnig abrupt_waveform')
+    # run_abrupt_waveform(repetitions, learning_algorithms, drift_detectors_params, data_stream)
     # log.info(f'Runnig gradual_waveform')
     # run_gradual_waveform(repetitions, learning_algorithms, drift_detectors_params, data_stream)
     
 
 if __name__ == "__main__":
     
-    #run_experiment(repetitions=30)
+    run_experiment(repetitions=30)
     run_experiment(repetitions=10)
     
    
