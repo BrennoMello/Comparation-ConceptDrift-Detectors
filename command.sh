@@ -28,4 +28,3 @@ trees.HoeffdingTree -d RDDM) -s (ConceptDriftStream -s
 (generators.AgrawalGenerator -f 3) -p 4000 -w 1) -d
 (generators.AgrawalGenerator -f 4) -p 6000 -w 1) -d
 (generators.AgrawalGenerator -f 5) -p 8000 -w 1) -r 30 -c -i 10000 -f 10 -q 10 -b 40
-
